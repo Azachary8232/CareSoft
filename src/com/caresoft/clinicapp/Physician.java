@@ -1,20 +1,24 @@
 package com.caresoft.clinicapp;
 
-public class Physician extends User implements HIPAACompliantUSER {
 //... imports class definition...
+public class Physician extends User implements HIPAACompliantUSER {
     
     // Inside class:    
     private ArrayList<String> patientNotes;
 	
     // TO DO: Constructor that takes an ID
-    public Physician(Integer id, ArrayList<String> patientNotes) {
-    	super(id);
+    public Physician(Integer id) {
+    	
+    }
     	
     	
-    	// TO DO: Implement HIPAACompliantUser!
-    	this.patientNotes = patientNotes;
-   public physician()
-	
+    // TO DO: Implement HIPAACompliantUser!
+    public boolean assignPin(int pin) {    	
+    }	
+   
+    public boolean accessAuthorized(Intefer confirmedAuthID) {
+    }
+    
     public void newPatientNotes(String notes, String patientName, Date date) {
         String report = String.format(
             "Datetime Submitted: %s \n", date);
@@ -27,7 +31,7 @@ public class Physician extends User implements HIPAACompliantUSER {
 	
 // TO DO: Setters & Getters
 
-	}
+	
 	public ArrayList<String> getPatientNotes() {
 		return patientNotes;
 	}
@@ -35,4 +39,7 @@ public class Physician extends User implements HIPAACompliantUSER {
 	public void setPatientNotes(ArrayList<String> patientNotes) {
 		this.patientNotes = patientNotes;
 	}
+	
+	
+	
 }

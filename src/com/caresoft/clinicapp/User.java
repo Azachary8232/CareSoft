@@ -10,6 +10,10 @@ public class User {
 		super();
 		this.id = id;
 	}
+    
+    
+    
+    
 	// TO DO: Getters and setters
 	public Integer getId() {
 		return id;

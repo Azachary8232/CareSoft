@@ -4,36 +4,50 @@ package com.caresoft.clinicapp;
 public class AdminUser extends User implements HIPAACompliantAdmin, HIPAACompliantUSER {
 	
 	
-	public AdminUser(Integer id, Integer employeeID, String role, ArrayList<String> securityIncidents) {
+	// Inside class:
+	private Integer employeeID;
+	private String role;
+	private ArrayList<String> securityIncidents;
+	
+	
+	
+	
+	// TO DO: Implement a constructor that takes an ID and a role
+	public AdminUser(Integer id, String role) {
 		super(id);
-		this.employeeID = employeeID;
 		this.role = role;
-		this.securityIncidents = securityIncidents;
 	}
     
-    // Inside class:
-    private Integer employeeID;
-    private String role;
-    private ArrayList<String> securityIncidents;
-    
-    // TO DO: Implement a constructor that takes an ID and a role
     // TO DO: Implement HIPAACompliantUser!
+	public boolean assignPin(int pin) {		
+	}
+	
+	public boolena accessAuthorized(Integer confirmedAuthID) {		
+	}
+	
     // TO DO: Implement HIPAACompliantAdmin!
+	public ArrayList<String> reportsecurityIncidents(){
+		
+	}
     
     public void newIncident(String notes) {
         String report = String.format(
             "Datetime Submitted: %s \n,  Reported By ID: %s\n Notes: %s \n", 
             new Date(), this.id, notes
         );
-        securityIncidents.add(report);
+        securityIncidents.add(report);        
     }
-    public void authIncident() {
+    
+    
+	public void authIncident() {
         String report = String.format(
             "Datetime Submitted: %s \n,  ID: %s\n Notes: %s \n", 
             new Date(), this.id, "AUTHORIZATION ATTEMPT FAILED FOR THIS USER"
         );
         securityIncidents.add(report);
     }
+	
+	
     
     // TO DO: Setters & Getters
 	public Integer getEmployeeID() {
