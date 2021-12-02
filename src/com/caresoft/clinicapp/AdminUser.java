@@ -1,4 +1,6 @@
 package com.caresoft.clinicapp;
+import java.util.ArrayList;
+import java.util.Date;
 
 //... imports class definition...
 public class AdminUser extends User implements HIPAACompliantAdmin, HIPAACompliantUSER {
@@ -7,7 +9,7 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPAAComplia
 	// Inside class:
 	private Integer employeeID;
 	private String role;
-	private ArrayList<String> securityIncidents;
+	private ArrayList<String> securityIncidents = new ArrayList<>();
 	
 	
 	
@@ -19,14 +21,32 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPAAComplia
 	}
     
     // TO DO: Implement HIPAACompliantUser!
-	public boolean assignPin(int pin) {		
+	public boolean assignPin(int pin) {	
+    	int pinCheck = String.valueOf(pin).length();
+    	if( pinCheck  >= 6) {
+    		setPin(pin);
+    		return true;
+    	}
+    	else {
+    		return false; 
+    	}	
+
 	}
 	
-	public boolena accessAuthorized(Integer confirmedAuthID) {		
+	public boolean accessAuthorized(Integer confirmedAuthID) {
+    	if ( confirmedAuthID == getId()) {   		
+    		return true;
+    	}
+    	else {
+    		newIncident("You are not who you say you are!");
+    		return false;
+    	}
+
 	}
 	
     // TO DO: Implement HIPAACompliantAdmin!
-	public ArrayList<String> reportsecurityIncidents(){
+	public ArrayList<String> reportSecurityIncidents(){
+		return securityIncidents;
 		
 	}
     
